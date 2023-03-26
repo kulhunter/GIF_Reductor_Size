@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <title>Reducción de tamaño de archivos GIF</title>
- <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <h1>Reducción de tamaño de archivos GIF</h1>
+    <title>Reduce GIF Size</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Reduce GIF Size</h1>
     <form>
-      <label for="fileInput">Selecciona un archivo GIF:</label>
-      <input type="file" id="fileInput" name="fileInput" accept=".gif">
-      <button type="submit">Reducir tamaño</button>
+        <label for="gif-file">Selecciona un archivo GIF:</label>
+        <input type="file" id="gif-file" accept=".gif">
+        <button type="button" id="reduce-btn">Reducir tamaño</button>
     </form>
+    <div id="result"></div>
     <script src="app.js"></script>
-  </body>
+</body>
 </html>
