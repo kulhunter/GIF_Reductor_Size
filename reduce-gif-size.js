@@ -23,4 +23,25 @@ async function reduceGIFSize(gifData) \{\
     encoderStream.on('end', () => resolve(Buffer.concat(chunks)));\
   \});\
   const inputBuffer = Buffer\
+async function reduceGIFSize(gifData) {
+  const decoder = new GIFDecoderAsync();
+  const encoder = new GIFEncoderAsync();
+  const lossy = new GIFLossy();
+  const encoderStream = encoder.createWriteStream();
+  const lossyStream = lossy.createWriteStream();
+  const outputStream = new Promise((resolve) => {
+    const chunks = [];
+    encoderStream.on('data', (chunk) => chunks.push(chunk));
+    encoderStream.on('end', () => resolve(Buffer.concat(chunks)));
+  });
+  const inputBuffer = Buffer.from(gifData);
+  decoder.pipe(lossyStream).pipe(encoderStream);
+  decoder.write(inputBuffer);
+  decoder.end();
+  const outputBuffer = await outputStream;
+  return `data:image/gif;base64,${outputBuffer.toString('base64')}`;
 }
+
+module.exports = {
+  reduceGIFSize,
+};
