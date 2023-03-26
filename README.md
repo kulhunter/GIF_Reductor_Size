@@ -14,6 +14,8 @@ Este es un proyecto que tiene como objetivo reducir el tamaño de los archivos G
 
 v1. Actualmente, la aplicación solo es capaz de reducir el tamaño de archivos GIF estáticos. Si el archivo GIF contiene animaciones o características avanzadas, es posible que la aplicación no sea capaz de procesarlo correctamente.
 
+V2. En este update, hemos agregado la biblioteca giflossy al archivo JavaScript utilizando la etiqueta script en el HTML. Luego, hemos modificado la función reduceGifSize para que utilice la biblioteca giflossy para reducir el tamaño del archivo GIF. Además, también hemos modificado el código para que pueda descargar archivos GIF animados en lugar de solo archivos GIF estáticos.
+
 ## Tecnologías utilizadas
 
 Este proyecto se ha desarrollado utilizando las siguientes tecnologías:
